@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Job from "./Job";
+import Favourites from "./Favourites";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
@@ -44,6 +45,9 @@ const MainSearch = () => {
             <Job key={jobData._id} data={jobData} />
           ))}
         </Col>
+      </Row>
+      <Row>
+        <Favourites />
       </Row>
     </Container>
   );
