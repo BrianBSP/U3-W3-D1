@@ -1,7 +1,4 @@
 const initialState = {
-  jobSelected: {
-    content: null,
-  },
   favourites: {
     content: [],
   },
@@ -9,12 +6,12 @@ const initialState = {
 
 const mainReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SELECT_JOB":
+    case "ADD_TO_FAVOURITES":
       return {
         ...state,
         favourites: {
           ...state.favourites,
-          content: action.payload,
+          content: [...state.favourites.content, action.payload],
         },
       };
 

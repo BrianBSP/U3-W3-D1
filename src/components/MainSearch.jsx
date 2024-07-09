@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Job from "./Job";
 import Favourites from "./Favourites";
+import { Link } from "react-router-dom";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
@@ -31,6 +32,12 @@ const MainSearch = () => {
 
   return (
     <Container>
+      <div>
+        <Link to="/preferiti" className="btn btn-primary mt-2">
+          Preferiti
+          <Favourites />
+        </Link>
+      </div>
       <Row>
         <Col xs={10} className="mx-auto my-3">
           <h1 className="display-1 text-center mt-4">Remote Jobs Search</h1>
@@ -45,9 +52,6 @@ const MainSearch = () => {
             <Job key={jobData._id} data={jobData} />
           ))}
         </Col>
-      </Row>
-      <Row>
-        <Favourites />
       </Row>
     </Container>
   );
